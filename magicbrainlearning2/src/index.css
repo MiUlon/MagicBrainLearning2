@@ -5,3 +5,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: linear-gradient(to right, rgb(224, 120, 255) 0%, rgb(117, 161, 241) 100%);
 }
+
+.center {
+  display: flex;
+  justify-content: center;
+}

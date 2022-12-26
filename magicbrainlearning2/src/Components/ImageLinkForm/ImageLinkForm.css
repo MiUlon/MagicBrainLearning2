@@ -1,0 +1,15 @@
+.imgaeLinkFormStyle {
+    font-weight: 600;
+}
+
+.imageLinkFormMaxWidth {
+    max-width: 900px;
+}
+
+.imageLinkFormBorder {
+    border-radius: 5px;
+}
+
+.imageLinkFormBackground {
+    background: linear-gradient(to left, rgb(224, 120, 255) 0%, rgb(117, 161, 241) 100%);
+}

@@ -2,7 +2,7 @@
     background: linear-gradient(to left, rgb(224, 120, 255) 0%, rgb(117, 161, 241) 100%);
 }
 
-p {
+.signOutStyle {
     display: flex;
     justify-content: center;
     max-width: 170px;
