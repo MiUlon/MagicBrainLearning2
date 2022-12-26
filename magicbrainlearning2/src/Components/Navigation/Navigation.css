@@ -1,0 +1,17 @@
+.navigationBackground {
+    background: linear-gradient(to left, rgb(224, 120, 255) 0%, rgb(117, 161, 241) 100%);
+}
+
+p {
+    display: flex;
+    justify-content: center;
+    max-width: 170px;
+    border-radius: 50px;
+    border: 1px solid black;
+    font-weight: 600;
+}
+
+.navigationFlexEnd {
+    display: flex;
+    justify-content: flex-end;
+}
