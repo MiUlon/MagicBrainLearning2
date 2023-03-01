@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import Navigation from './Components/Navigation/Navigation';
+import SignIn from './Components/SignIn/SignIn';
+import Register from './Components/Register/Register';
 import Logo from './Components/Logo/Logo';
 import Rank from './Components/Rank/Rank';
 import ImageLinkForm from './Components/ImageLinkForm/ImageLinkForm';
@@ -21,6 +23,8 @@ class App extends Component {
       input: '',
       imageURL: '',
       box: {},
+      route: 'signin',
+      isSignedIn: false,
     }
   };
 
@@ -52,15 +56,32 @@ class App extends Component {
       .catch(error => console.log(error))
   };
 
+  onRouteChange = (route) => {
+    if (route === 'signout') {
+      this.setState({isSignedIn: false})
+    } else if (route === 'home') {
+      this.setState({isSignedIn: true})
+    }
+    this.setState({route: route});
+  };
+
   render() {
+    const { isSignedIn, route, box, imageURL } = this.state;
     return (
-      <div>
+      <div className='App'>
         <ParticlesBg type="square" bg={true} />
-        <Navigation />
-        <Logo />
-        <Rank />
-        <ImageLinkForm onInputChange={this.onInputChange} onButtonClick={this.onButtonClick}/>
-        <FaceDetect setFaceBox={this.state.box} imageURL={this.state.imageURL}/>
+        <Navigation onRouteChange={this.onRouteChange} isSignedIn={isSignedIn}  />
+        { route === 'home'
+          ? <div>
+              <Logo />
+              <Rank />
+              <ImageLinkForm onInputChange={this.onInputChange} onButtonClick={this.onButtonClick}/>
+              <FaceDetect setFaceBox={box} imageURL={imageURL}/>
+            </div>
+          : route === 'signin'
+            ? <SignIn onRouteChange={this.onRouteChange} />
+            : <Register onRouteChange={this.onRouteChange} />
+          }
       </div>
     )
   }
