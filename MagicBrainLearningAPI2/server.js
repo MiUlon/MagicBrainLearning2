@@ -68,7 +68,7 @@ app.post('/signin', (req, res) => {
                 res.status(400).json('Cannot login')
             }
     })
-    .catch(error => res.status(400).json('Cannot login'))
+    .catch(error => console.log(error))
 });
 
 app.post('/register', (req, res) =>  {
@@ -120,7 +120,7 @@ app.put('/image', (req, res) => {
         .increment('entries', 1)
         .returning('entries')
         .then(entries => {
-            res.json(entries[0])
+            res.json(entries[0].entries)
         })
         .catch(error => res.status(400).json('Cannot receive entries'));
 });

@@ -27,8 +27,9 @@ class SignIn extends React.Component {
             })
         })
         .then(response => response.json())
-        .then(data => {
-            if (data === 'Success') {
+        .then(user => {
+            if (user.id) {
+                this.props.loadUser(user);
                 this.props.onRouteChange('home');
             }})
     };
@@ -62,7 +63,7 @@ class SignIn extends React.Component {
                         </div>
                         </fieldset>
                         <div className="">
-                        <input onClick={() => this.onSingInSubmit()} className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib br4" type="submit" value="Sign in"/>
+                        <input onClick={this.onSingInSubmit} className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib br4" type="submit" value="Sign in"/>
                         </div>
                         <div className="">
                         <input onClick={() => this.props.onRouteChange('register')} className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib ma2 br4" type="submit" value="Register"/>
